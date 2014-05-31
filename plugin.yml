@@ -1,0 +1,7 @@
+name: AdminControl
+main: me.lorddominayte.admincontrol.AdminControl
+version: 1
+description: A simple admin plugin
+commands:
+  admincontrol:
+    description: Display plugin information
