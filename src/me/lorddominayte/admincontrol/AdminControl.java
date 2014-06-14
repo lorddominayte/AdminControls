@@ -1,10 +1,10 @@
 package me.lorddominayte.admincontrol;
 
 import java.util.logging.Logger;
-
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -33,8 +33,14 @@ public class AdminControl extends JavaPlugin {
 				player.sendMessage(ChatColor.GOLD + pdfFile.getName() + " version " + pdfFile.getVersion() + " is currently running on this server.");
 			}
 			if(args.length == 1 && args[0] == "heal") {
-				player.setHealth(player.getMaxHealth());
+				Damageable dp = player;
+				dp.setHealth(dp.getMaxHealth());
 				player.sendMessage(ChatColor.GREEN + "You were healed!");
+			}
+			else if(args.length == 2 && args[0] == "heal") {
+				String target = args[1];
+				target.setHealth(target.getMaxHealth());
+				target.sendMessage(ChatColor.GREEN + "You were healed!");
 			}
 		}
 		return false;
